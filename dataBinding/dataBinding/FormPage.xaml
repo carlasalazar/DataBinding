@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="dataBinding.FormPage"
+             Title="Registro de Persona"
+             BackgroundColor="#f5f5f5">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20">
+
+            <!-- Encabezado -->
+            <Frame BackgroundColor="#007ACC" CornerRadius="10" Padding="20" HorizontalOptions="FillAndExpand">
+                <Label 
+                    Text="Registro de Persona"
+                    FontSize="28"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+            </Frame>
+
+            <!-- Campo Nombre -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Nombre:" FontAttributes="Bold" FontSize="16" TextColor="#333" />
+                <Entry x:Name="NombreEntry" Placeholder="Ingrese el nombre" 
+                       BackgroundColor="White" TextColor="#333" 
+                       HeightRequest="40" />
+            </VerticalStackLayout>
+
+            <!-- Campo Apellido -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Apellido:" FontAttributes="Bold" FontSize="16" TextColor="#333" />
+                <Entry x:Name="ApellidoEntry" Placeholder="Ingrese el apellido" 
+                       BackgroundColor="White" TextColor="#333" 
+                       HeightRequest="40" />
+            </VerticalStackLayout>
+
+            <!-- Campo Sexo -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Sexo (h/m):" FontAttributes="Bold" FontSize="16" TextColor="#333" />
+                <Picker x:Name="SexoPicker" Title="Seleccione el sexo"
+                        BackgroundColor="White" TextColor="#333" 
+                        HeightRequest="40">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>h</x:String>
+                            <x:String>m</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </VerticalStackLayout>
+
+            <!-- Campo Fecha de Nacimiento -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="Fecha de Nacimiento:" FontAttributes="Bold" FontSize="16" TextColor="#333" />
+                <DatePicker x:Name="FechaNacimientoPicker"
+                            BackgroundColor="White" TextColor="#333" 
+                            HeightRequest="40" />
+            </VerticalStackLayout>
+
+            <!-- Campo ID Rol -->
+            <VerticalStackLayout Spacing="5">
+                <Label Text="ID Rol:" FontAttributes="Bold" FontSize="16" TextColor="#333" />
+                <Entry x:Name="IdRolEntry" Placeholder="Ingrese el ID del rol" 
+                       BackgroundColor="White" TextColor="#333" 
+                       HeightRequest="40" Keyboard="Numeric" />
+            </VerticalStackLayout>
+
+            <!-- Botón Enviar -->
+            <Button 
+                Text="Enviar"
+                Clicked="OnEnviarClicked"
+                BackgroundColor="#007ACC"
+                TextColor="White"
+                CornerRadius="10"
+                FontSize="18"
+                HeightRequest="50"
+                HorizontalOptions="FillAndExpand" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

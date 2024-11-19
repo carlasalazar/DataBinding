@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="dataBinding.MainPage"
+             Title="Listado de Personas"
+             BackgroundColor="#f5f5f5">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+
+        <!-- Botón para navegar a la siguiente página -->
+        <Button
+            x:Name="btnpagsig"
+            Text="Siguiente"
+            Clicked="btnpagsig_Clicked"
+            BackgroundColor="#007ACC"
+            TextColor="White"
+            FontAttributes="Bold"
+            CornerRadius="10"
+            HeightRequest="50"
+            HorizontalOptions="FillAndExpand" />
+
+        <!-- Encabezados de la tabla -->
+        <Grid ColumnDefinitions="100,150,50,150,50" BackgroundColor="#007ACC" Padding="10">
+            <Label Text="Nombre" FontAttributes="Bold" Grid.Column="0" TextColor="White" HorizontalOptions="Center" />
+            <Label Text="Apellido" FontAttributes="Bold" Grid.Column="1" TextColor="White" HorizontalOptions="Center" />
+            <Label Text="Sexo" FontAttributes="Bold" Grid.Column="2" TextColor="White" HorizontalOptions="Center" />
+            <Label Text="Nacimiento" FontAttributes="Bold" Grid.Column="3" TextColor="White" HorizontalOptions="Center" />
+            <Label Text="Rol ID" FontAttributes="Bold" Grid.Column="4" TextColor="White" HorizontalOptions="Center" />
+        </Grid>
+
+        <!-- Listado de las personas -->
+        <CollectionView ItemsSource="{Binding Personas}" BackgroundColor="White"
+                            Margin="0,0,0,10"
+                            VerticalOptions="FillAndExpand">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <!-- Fila de la tabla -->
+                    <Grid ColumnDefinitions="100,150,50,150,50" Padding="5" Margin="0,0,0,10"
+                              BackgroundColor="#f0f0f0">
+                        <Label Text="{Binding nombre}" Grid.Column="0" TextColor="#333" VerticalOptions="Center" />
+                        <Label Text="{Binding apellido}" Grid.Column="1" TextColor="#333" VerticalOptions="Center" />
+                        <Label Text="{Binding sexo}" Grid.Column="2" TextColor="#333" VerticalOptions="Center" HorizontalOptions="Center" />
+                        <Label Text="{Binding fh_nac, StringFormat='{0:yyyy-MM-dd}'}" Grid.Column="3" TextColor="#333" VerticalOptions="Center" />
+                        <Label Text="{Binding id_rol}" Grid.Column="4" TextColor="#333" VerticalOptions="Center" HorizontalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
